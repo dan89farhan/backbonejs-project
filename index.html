@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="js/lib/modernizr-2.6.2.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="brand">
+
+        </div>
+        <div id='catogeries'>
+            <span>Select Category</span>
+        </div>
+        <div id="types">
+            <span>Select Type</span>
+
+        </div>
+    </div>
+    <div>
+        <table style="width:100%" id='table'>
+            <tr>
+                <th>name</th>
+                <th>price</th>
+                <th>brand</th>
+                <th>categories</th>
+                <th>date</th>
+                <th>type</th>
+                <th>description</th>
+                <th>action</th>
+            </tr>
+            <!--  -->
+        </table>
+    </div>
+    <script src="js/lib/jquery-min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+
+    <!-- Basic template -->
+    <script id="prod_name_price_data" type="text/html">
+        PName: <input type="text" name="name" id="name">
+        Price: <input type="number" name="price" id="price">
+        Date<input type="date" name="date" id="date">
+        Description: <input type="text" name="desc" id="desc">
+    </script>
+
+    <!-- Brand template -->
+    <script id='brands_temp' type='text/html'>
+        Select One brand
+        <select id="Brands" name="Brands">
+                
+            <option value="">--select a product line--</option>
+            
+            <% _(brandOptions).each(function(brand) { %>
+                <option value="<%= brand.attributes.name %>"><%= brand.attributes.name %></option>
+            <% }); %>
+        </select>
+    </script>
+
+    <!-- Model called -->
+    <script src="js/models/container_model.js"></script>
+    <script src="js/models/product_basic_model.js"></script>
+    <script src="js/models/brands_model.js"></script>
+    <script src="js/models/categories_model.js"></script>
+    <script src="js/models/types_model.js"></script>
+
+
+
+    <!-- Views called -->
+    <script src="js/views/product_basic_view.js"></script>
+    <script src="js/views/product_brands_view.js"></script>
+    <script src="js/views/product_categories_view.js"></script>
+    <script src="js/views/product_type_view.js"></script>
+
+
+    <!-- Product Details view -->
+    <script src="js/views/productDetail/row_view.js"></script>
+    <script src="js/views/productDetail/table_view.js"></script>
+
+
+
+    <script src="js/views/container_view.js"></script>
+
+    <!-- Api call -->
+    <!-- <script src="js/collections/api_consume.js"></script> -->
+
+    <!-- <script src="js/main.js"></script> -->
+
+
+</body>
+
+</html>
