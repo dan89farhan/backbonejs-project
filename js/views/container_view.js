@@ -2,23 +2,27 @@ var ContainerView = Backbone.View.extend({
     el: '#container',
     type: 'post',
     events: {
-        'click .addProduct': 'onAdd'
+        'click .addProduct': 'onAdd',
+        'click .fetchFromDB': 'fetchFromDB'
     },
     onAdd: function () {
+        console.log('on Add');
 
         var productData = new ProductDetail();
 
         productData.set(productDetail.toJSON())
 
         this.model.get('productDetails').add(productData);
-        // var row_view = new RowView();
-        // row_view.saveModel();
-        // this.model.get('')
 
     },
+
+    fetchFromDB: function () {
+        console.log('im in fetch from Db', router);
+        router.navigate('showTable', true);
+    },
+
     initialize: function () {
         this.render();
-
 
     },
     render: function () {
@@ -28,7 +32,8 @@ var ContainerView = Backbone.View.extend({
         this.$el.append(categoriesView.render().$el);
         this.$el.append(typesView.render().$el);
         this.$el.append('<button class ="addProduct">Add</button>');
-        this.$el.append(tableView.render().$el);
+        this.$el.append('<button class ="fetchFromDB">fetch from database</button>')
+        // this.$el.append(tableView.render().$el);
         return this;
     }
 });
@@ -78,7 +83,7 @@ var productDetail = new ProductDetail();
 // This is Collection
 
 var productDetails = new ProductDetails();
-console.log(productDetails);
+
 
 
 

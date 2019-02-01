@@ -27,13 +27,13 @@ var ProductDetails = Backbone.Collection.extend({
 
     url: "http://localhost:8080/getProducts",
 
-    fetch: function (options) {
-        return Backbone.Collection.prototype.fetch.call(this, options);
-    },
+    // fetch: function (options) {
+    //     return Backbone.Collection.prototype.fetch.call(this, options);
+    // },
 
     initialize: function () {
 
-        this.fetch();
+        // this.fetch();
         console.log(this);
 
     }

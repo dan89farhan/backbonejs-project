@@ -18,11 +18,6 @@ var RowView = Backbone.View.extend({
         this.model.destroy();
     },
 
-    saveModel: function () {
-        // this.model.save();
-        console.log(this.model);
-
-    },
 
 
     initialize: function () {
