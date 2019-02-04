@@ -32,7 +32,7 @@ var BasicView = Backbone.View.extend({
     addDesc: function (e) {
 
         productDetail.set({
-            'desc': $(e.target).val()
+            'description': $(e.target).val()
         });
 
         console.log(productDetail);

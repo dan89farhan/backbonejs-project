@@ -36,10 +36,10 @@ var RowView = Backbone.View.extend({
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('name') + '" disabled/>' + '</td>');
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('price') + '" disabled/>' + '</td>');
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('brand') + '" disabled/>' + '</td>');
-        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('categories') + '" disabled/>' + '</td>');
+        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('category') + '" disabled/>' + '</td>');
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('date') + '" disabled/>' + '</td>');
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('type') + '" disabled/>' + '</td>');
-        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('desc') + '" disabled/>' + '</td>');
+        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('description') + '" disabled/>' + '</td>');
         this.$el.append('<td><button class = update>update</button><button class = delete>Delete</button></td>');
         this.$el.append('<td><button class= addToCart>Add to Cart</button></td>')
         this.$el.attr('id', this.model.cid);

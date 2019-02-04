@@ -6,6 +6,8 @@ var TableView = Backbone.View.extend({
     },
     initialize: function () {
 
+        //this.model.render();
+
         // this.model.get('productDetails').on('add', this.addRow, this);
         this.model.get('productDetails').on('remove', this.removeRow, this);
 

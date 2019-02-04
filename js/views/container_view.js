@@ -10,10 +10,12 @@ var ContainerView = Backbone.View.extend({
 
         var productData = new ProductDetail();
 
+        console.log("in on add ", productDetails);
+
         productData.set(productDetail.toJSON())
 
         this.model.get('productDetails').create(productData);
-        router.navigate('showTable', true);
+        // router.navigate('showTable', true);
 
     },
 
