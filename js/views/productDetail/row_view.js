@@ -22,7 +22,7 @@ var RowView = Backbone.View.extend({
         // console.log(this.model.get('addToCart'));
         var qty = this.model.get("quantity");
         this.model.set({ quantity: qty + 1 });
-        console.log(base.get('cartItemList').add(this.model));
+        base.get('cartItemList').add(this.model);
 
     },
 
