@@ -6,5 +6,5 @@ var Category = Backbone.Model.extend({
 
 var Categories = Backbone.Collection.extend({
     model: Category,
-    url: "http://localhost:8080/getCategory",
+    url: API_URL + "getCategory",
 });

@@ -20,13 +20,13 @@ var ProductDetail = Backbone.Model.extend({
         'type': '',
         'quantity': 0
     },
-    urlRoot: "http://localhost:8080/saveProduct",
+    urlRoot: API_URL + "saveProduct",
 });
 
 var ProductDetails = Backbone.Collection.extend({
     model: ProductDetail,
 
-    url: "http://localhost:8080/getProducts",
+    url: API_URL + "getProducts",
 
     // fetch: function (options) {
     //     return Backbone.Collection.prototype.fetch.call(this, options);
@@ -35,7 +35,7 @@ var ProductDetails = Backbone.Collection.extend({
     initialize: function () {
 
         // this.fetch();
-        console.log(this);
+        // console.log(this);
 
     }
 })
