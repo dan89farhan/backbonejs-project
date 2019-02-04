@@ -7,6 +7,6 @@ var Brand = Backbone.Model.extend({
 
 var Brands = Backbone.Collection.extend({
     model: Brand,
-    url: "http://localhost:8080/getBrands",
+    url: API_URL + "getBrands",
 
 });

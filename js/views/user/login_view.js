@@ -34,18 +34,26 @@ var LoginView = Backbone.View.extend({
     loginClick: function () {
         console.log(' login clicked');
 
-        var url = 'http://192.168.200.5:8080/authenticate';
+        var url = API_URL + 'authenticate';
         console.log('Loggin in... ');
         var formValues = {
-            email: $('#username').val(),
+            userName: $('#username').val(),
             password: $('#password').val()
         };
+        console.log(JSON.stringify(formValues));
+
 
         $.ajax({
             url: url,
             type: 'POST',
             dataType: "json",
+            // data: formValues,
+            // headers: {
+            //     "Content-Type": "application/json",
+
+            // },
             data: formValues,
+            // contentType: 'application/json',
             success: function (data) {
                 console.log(["Login request details: ", data]);
 
@@ -59,6 +67,10 @@ var LoginView = Backbone.View.extend({
 
                     // window.location.replace('#');
                 }
+            },
+            error: function (data) {
+                console.log(data);
+
             }
         });
 

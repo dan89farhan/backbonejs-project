@@ -12,11 +12,7 @@ var TableView = Backbone.View.extend({
         this.model.get('productDetails').on('sync', this.syncTable, this);
 
     },
-    // addRow: function (row) {
-    //     var rowView = new RowView({ model: row });
-    //     row.save();
-    //     this.$el.append(rowView.render().$el);
-    // },
+
 
     syncTable: function (data) {
         var self = this;
