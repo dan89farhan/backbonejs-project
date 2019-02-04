@@ -19,7 +19,9 @@ var TableView = Backbone.View.extend({
     syncTable: function (data) {
         var self = this;
         for (let index = 0; index < data.length; index++) {
-            var rowview = new RowView({ model: data.at(index) });
+            var rowview = new RowView({
+                model: data.at(index)
+            });
             self.$el.append(rowview.render().$el);
         }
     },
@@ -29,11 +31,12 @@ var TableView = Backbone.View.extend({
         this.$('tr#' + row.cid).remove();
     },
 
-    fetchData: function () {
+    fetchData: function (url) {
         console.log('im in fetch data');
 
-        this.model.get('productDetails').fetch().done(function (response) {
-        });
+        this.model.get('productDetails').fetch({
+            url: url
+        }).done(function (response) {});
     },
     render: function () {
         this.$el.append('<tr>            <th>name</th>            <th>price</th>            <th>brand</th>            <th>categories</th>            <th>date</th>            <th>type</th>            <th>description</th>            <th>action</th>            <th>Add to Cart</th>        </tr>');

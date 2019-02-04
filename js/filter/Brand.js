@@ -101,18 +101,23 @@ var FilterByBrandView = Backbone.View.extend({
         "click #filter": "onFilter",
     },
     onFilter: function (row) {
-        $("#tableContainer").html("");
-        console.log($("#brands_name").val());
 
-        console.log(table);
+        /* 
+                $("#tableContainer").html("");
+                console.log($("#brands_name").val());
 
-        table.fetch({
-            url: 'http://localhost:8080/filterByBrandName?brand_name=' + $("#brands_name").val() + '&lower=' + $("#lower").val() + '&upper=' + $("#upper").val()
-        }).done(function () {
-            console.log(' i m in callback');
+                console.log(table);
 
-        });
+                table.fetch({
+                    url: 'http://localhost:8080/filterByBrandName?brand_name=' + $("#brands_name").val() + '&lower=' + $("#lower").val() + '&upper=' + $("#upper").val()
+                }).done(function () {
+                    console.log(' i m in callback');
 
+                }); */
+
+
+
+        router.navigate('showTableWithFilter', true, );
 
         // var newRow = new RowView({
         //     model: row

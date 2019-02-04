@@ -4,14 +4,17 @@ var AppRouter = Backbone.Router.extend({
         'index': 'index',
         'formdata': 'formData',
         'showTable': 'showTable',
-        'viewCart': 'viewCart'
+        'viewCart': 'viewCart',
+        'showTableWithFilter': 'showTableWithFilter'
     },
 
     index: function () {
         var loginView = new LoginView();
     },
     formData: function () {
-        var containerView = new ContainerView({ model: base });
+        var containerView = new ContainerView({
+            model: base
+        });
     },
     showTable: function () {
         var tableView = new TableView({
@@ -19,10 +22,20 @@ var AppRouter = Backbone.Router.extend({
         });
         tableView.fetchData();
     },
+    showTableWithFilter: function () {
+        var tableView1 = new TableView({
+            model: base
+        });
+        console.log('/getP?brand_name=' + $("#brands_name").val() + '&lower=' + $("#lower").val() + '&upper=' + $("#upper").val());
+
+        tableView1.fetchData(API_URL + '/getP?brand_name=' + $("#brands_name").val() + '&lower=' + $("#lower").val() + '&upper=' + $("#upper").val());
+    },
     viewCart: function () {
         console.log("im in view Cart");
         //base.get()
-        var cartItemListView = new CartItemListView({ model: base });
+        var cartItemListView = new CartItemListView({
+            model: base
+        });
 
     }
 });

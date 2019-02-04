@@ -43,7 +43,9 @@ var ContainerView = Backbone.View.extend({
         this.$el.append('<button class ="addProduct">Add</button>');
         this.$el.append('<button class ="fetchFromDB">fetch from database</button>')
         // this.$el.append(tableView.render().$el);
-        var addToCartItems = base.get('productDetails').where({ addToCart: 1 });
+        var addToCartItems = base.get('productDetails').where({
+            addToCart: 1
+        });
         this.$el.append('<label> Count: ' + addToCartItems.length + '</label>');
         this.$el.append('<button class="viewCart" id="viewCart">View Cart</button>');
 
@@ -56,8 +58,7 @@ var ContainerView = Backbone.View.extend({
 var basic = new Basic();
 
 
-var brands = new Brands([
-]);
+var brands = new Brands([]);
 
 
 
