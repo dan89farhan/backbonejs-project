@@ -6,36 +6,35 @@ var TableView = Backbone.View.extend({
     },
     initialize: function () {
 
-        this.model.get('productDetails').on('add', this.addRow, this);
+        // this.model.get('productDetails').on('add', this.addRow, this);
         this.model.get('productDetails').on('remove', this.removeRow, this);
 
+        this.model.get('productDetails').on('sync', this.syncTable, this);
 
     },
+    // addRow: function (row) {
+    //     var rowView = new RowView({ model: row });
+    //     row.save();
+    //     this.$el.append(rowView.render().$el);
+    // },
 
-    addRow: function (row) {
-
-
-        var rowView = new RowView({ model: row });
-        row.save();
-        this.$el.append(rowView.render().$el);
+    syncTable: function (data) {
+        var self = this;
+        for (let index = 0; index < data.length; index++) {
+            var rowview = new RowView({ model: data.at(index) });
+            self.$el.append(rowview.render().$el);
+        }
     },
-
 
     removeRow: function (row) {
         console.log('i m here remove');
         this.$('tr#' + row.cid).remove();
     },
-    // render: function () {
-    //     console.log("i m here", this.model.get('productDetails'));
-    //     console.log("i m here", this.model.get('productDetails').models);
 
-    //     var self = this;
-    //     // this.model.get('productDetails').fetch();
-    //     this.model.get('productDetails').each(function (row) {
-    //         var rowView = new RowView({ model: row });
-    //         self.$el.append(rowView.render().$el);
-    //     });
+    fetchData: function () {
+        console.log('im in fetch data');
 
-    //     return this;
-    // }
+        this.model.get('productDetails').fetch().done(function (response) {
+        });
+    },
 });

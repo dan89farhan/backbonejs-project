@@ -7,18 +7,17 @@ var ContainerView = Backbone.View.extend({
         'click .viewCart': 'viewCart'
     },
     onAdd: function () {
-        console.log('on Add');
 
         var productData = new ProductDetail();
 
         productData.set(productDetail.toJSON())
 
-        this.model.get('productDetails').add(productData);
+        this.model.get('productDetails').create(productData);
+        router.navigate('showTable', true);
 
     },
 
     fetchFromDB: function () {
-        console.log('im in fetch from Db', router);
         router.navigate('showTable', true);
     },
 
