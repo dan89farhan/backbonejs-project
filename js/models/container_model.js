@@ -20,7 +20,7 @@ var ProductDetail = Backbone.Model.extend({
         'type': '',
         'quantity': 0
     },
-    urlRoot: API_URL + "saveProduct",
+    urlRoot: API_URL + "product",
 });
 
 var ProductDetails = Backbone.Collection.extend({

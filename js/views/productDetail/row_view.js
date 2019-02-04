@@ -10,13 +10,31 @@ var RowView = Backbone.View.extend({
         'click .addToCart': 'addToCartRow'
     },
     updateRow: function () {
-        var chcekDisable = $('input#' + this.model.cid).prop('disabled');
-        $('input#' + this.model.cid).prop("disabled", !chcekDisable);
+        var id = this.model.cid;
+        var datas = ['name', 'price', 'brand', 'category', 'date', 'type', 'description'];
+        datas.forEach(data => {
+            var chcekDisable = $('input#' + data + this.model.cid).prop('disabled');
+            $('input#' + data + this.model.cid).prop("disabled", !chcekDisable);
+            this.model.set({
+                [data]: ($('#' + data + id).val()),
+
+            });
+
+        });
+
+        this.model.save();
 
     },
     deleteRow: function () {
         base.get('productDetails').remove(this.model);
-        this.model.destroy();
+        this.model.destroy({
+            success: function (model, response) {
+                console.log("in destroy");
+                console.log(model);
+                console.log(response);
+
+            }
+        });
     },
     addToCartRow: function () {
         // console.log(this.model.get('addToCart'));
@@ -33,13 +51,13 @@ var RowView = Backbone.View.extend({
     },
     render: function () {
 
-        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('name') + '" disabled/>' + '</td>');
-        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('price') + '" disabled/>' + '</td>');
-        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('brand') + '" disabled/>' + '</td>');
-        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('category') + '" disabled/>' + '</td>');
-        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('date') + '" disabled/>' + '</td>');
-        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('type') + '" disabled/>' + '</td>');
-        this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('description') + '" disabled/>' + '</td>');
+        this.$el.append('<td><input type="text" id = "name' + this.model.cid + '" value ="' + this.model.get('name') + '" disabled/>' + '</td>');
+        this.$el.append('<td><input type="text" id = "price' + this.model.cid + '" value ="' + this.model.get('price') + '" disabled/>' + '</td>');
+        this.$el.append('<td><input type="text" id = "brand' + this.model.cid + '" value ="' + this.model.get('brand') + '" disabled/>' + '</td>');
+        this.$el.append('<td><input type="text" id = "category' + this.model.cid + '" value ="' + this.model.get('category') + '" disabled/>' + '</td>');
+        this.$el.append('<td><input type="text" id = "date' + this.model.cid + '" value ="' + this.model.get('date') + '" disabled/>' + '</td>');
+        this.$el.append('<td><input type="text" id = "type' + this.model.cid + '" value ="' + this.model.get('type') + '" disabled/>' + '</td>');
+        this.$el.append('<td><input type="text" id = "description' + this.model.cid + '" value ="' + this.model.get('description') + '" disabled/>' + '</td>');
         this.$el.append('<td><button class = update>update</button><button class = delete>Delete</button></td>');
         this.$el.append('<td><button class= addToCart>Add to Cart</button></td>')
         this.$el.attr('id', this.model.cid);
