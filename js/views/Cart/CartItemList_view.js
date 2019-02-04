@@ -1,7 +1,6 @@
 
 var CartItemListView = Backbone.View.extend({
-    el: '#cartTable',
-
+    el: '#container',
     initialize: function () {
 
         // this.model.get('cartItemList').on('add', this.addCartItem, this);
@@ -26,12 +25,15 @@ var CartItemListView = Backbone.View.extend({
 
     render: function () {
         // $('#table').remove();
-        this.html('<tr>        <th>Product Name</th>        <th>Product Price</th>        <th>Quantity</th>        <th>Increase Quantity</th>        <th>Decrease Quantity</th>    </tr>');
+        this.$el.html('<tr>        <th>Product Name</th>        <th>Product Price</th>        <th>Quantity</th>        <th>Total Price</th>      <th>Increase Quantity</th>        <th>Decrease Quantity</th>    </tr>');
+        console.log("im in cart item list render");
 
         var self = this;
         this.model.get('cartItemList').each(function (cart) {
             var cartItemView = new CartItemView({ model: cart });
             self.$el.append(cartItemView.render().$el);
+            console.log(cart);
+
         })
 
 

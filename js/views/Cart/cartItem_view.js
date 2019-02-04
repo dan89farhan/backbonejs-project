@@ -30,6 +30,7 @@ var CartItemView = Backbone.View.extend({
             this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('name') + '" disabled/>' + '</td>');
             this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('price') + '" disabled/>' + '</td>');
             this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('quantity') + '" disabled/>' + '</td>');
+            this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('quantity') * this.model.get('price') + '" disabled/>' + '</td>');
             this.$el.append('<td><button class="increaseQuantity">Increase Quantity</button></td>');
             this.$el.append('<td><button class="decreaseQuantity">Decrease Qunatity</button></td>');
             return this;

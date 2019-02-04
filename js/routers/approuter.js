@@ -35,7 +35,7 @@ var AppRouter = Backbone.Router.extend({
         tableView1.fetchDataFromFilter(API_URL + '/getFilter?brand_name=' + brand_name + '&lower=' + lower + '&upper=' + upper);
     },
     viewCart: function () {
-        console.log("im in view Cart");
+        // console.log("im in view Cart");
         //base.get()
         var cartItemListView = new CartItemListView({
             model: base

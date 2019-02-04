@@ -3,8 +3,7 @@ var ContainerView = Backbone.View.extend({
     type: 'post',
     events: {
         'click .addProduct': 'onAdd',
-        'click .fetchFromDB': 'fetchFromDB',
-        'click .viewCart': 'viewCart'
+        'click .fetchFromDB': 'fetchFromDB'
     },
     onAdd: function () {
 
@@ -23,11 +22,6 @@ var ContainerView = Backbone.View.extend({
         router.navigate('showTable', true);
     },
 
-    viewCart: function () {
-        console.log("In view.");
-        router.navigate('viewCart', true);
-
-    },
 
     initialize: function () {
         this.render();
@@ -45,12 +39,6 @@ var ContainerView = Backbone.View.extend({
 
         // this.$el.append(tableView.render().$el);
         //var addToCartItems = base.get('productDetails').where({ addToCart: 1 });
-        this.$el.append('<label> Count: </label>');
-        // this.$el.append('<div id="cartCountContainer" > </div>');
-        // this.$el.append(cartCountView.render().$el.html());
-        this.$el.append('<span id=count>0</span>')
-
-        this.$el.append('<button class="viewCart" id="viewCart">View Cart</button>');
 
         return this;
     }
@@ -138,9 +126,7 @@ var typesView = new TypesView({
 var tableView = new TableView({
     model: base
 });
-var cartCountView = new CartCountView({
-    model: base
-});
+// cartCountView.render();
 // var tableView = new TableView({
 //     model: base
 // });
