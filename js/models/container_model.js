@@ -14,9 +14,9 @@ var ProductDetail = Backbone.Model.extend({
         'name': '',
         'price': '',
         'date': '',
-        'desc': '',
-        'brand': '',
-        'categories': '',
+        'description': '',
+        'brandName': '',
+        'category': '',
         'type': '',
         'quantity': 0
     },

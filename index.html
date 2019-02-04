@@ -91,7 +91,7 @@
             <option value="">--select a product line--</option>
             
             <% _(brandOptions).each(function(brand) { %>
-                <option value="<%= brand.attributes.name %>"><%= brand.attributes.name %></option>
+                <option value="<%= brand.attributes.brandName %>"><%= brand.attributes.brandName %></option>
             <% }); %>
         </select>
     </script>

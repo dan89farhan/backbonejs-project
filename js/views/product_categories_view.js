@@ -9,22 +9,31 @@ var CategoryView = Backbone.View.extend({
         var $target = $(e.target);
         var selected = $target.is(':checked');
         var value = $target.val();
+        console.log(selected, value);
+
         if (selected) {
-            categoryRows.add(new Category({ 'name': value }))
+            categoryRows.add(new Category({ 'categoryName': value }))
         }
         else {
-            var category = categoryRows.findWhere({ 'name': value });
+            var category = categoryRows.findWhere({ 'categoryName': value });
             categoryRows.remove(category);
         };
 
+        console.log(categoryRows);
+
+
         var result = categoryRows.toJSON().map(function (val) {
-            return val.name;
+            return val.categoryName;
         }).join(',');
+        console.log(result);
 
 
         productDetail.set({
-            'categories': result
-        })
+            'category': result
+        });
+
+        console.log('productDetails ', productDetail);
+
 
 
     },
@@ -32,7 +41,7 @@ var CategoryView = Backbone.View.extend({
         this.render();
     },
     render: function () {
-        this.$el.html('<input type="checkbox" name="' + this.model.get('name') + '" id="' + this.model.get('name') + '" value="' + this.model.get('name') + '">' + this.model.get('name') + '</input>');
+        this.$el.html('<input type="checkbox" name="' + this.model.get('categoryName') + '" id="' + this.model.get('categoryName') + '" value="' + this.model.get('categoryName') + '">' + this.model.get('categoryName') + '</input>');
         return this;
     }
 });
