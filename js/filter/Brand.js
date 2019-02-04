@@ -116,8 +116,16 @@ var FilterByBrandView = Backbone.View.extend({
                 }); */
 
 
+        var brand_name = $("#brands_name").val();
+        var lower = $("#lower").val();
+        var upper = $("#upper").val();
+        console.log(lower);
+        console.log(upper);
 
-        router.navigate('showTableWithFilter', true, );
+
+        router.navigate('showTableWithFilter/' + brand_name + '/' + lower + '/' + upper, true);
+        console.log('in filter function', );
+
 
         // var newRow = new RowView({
         //     model: row
@@ -137,6 +145,6 @@ var FilterByBrandView = Backbone.View.extend({
 });
 
 var fv = new FilterByBrandView({
-    el: "#BrandNameFilterContainer"
+    //el: "#BrandNameFilterContainer"
 });
 fv.render();

@@ -5,7 +5,7 @@ var AppRouter = Backbone.Router.extend({
         'formdata': 'formData',
         'showTable': 'showTable',
         'viewCart': 'viewCart',
-        'showTableWithFilter': 'showTableWithFilter'
+        'showTableWithFilter/:brand_name/:lower/:upper': 'showTableWithFilter'
     },
 
     index: function () {
@@ -22,13 +22,17 @@ var AppRouter = Backbone.Router.extend({
         });
         tableView.fetchData();
     },
-    showTableWithFilter: function () {
+    showTableWithFilter: function (brand_name, lower, upper) {
         var tableView1 = new TableView({
             model: base
         });
-        console.log('/getP?brand_name=' + $("#brands_name").val() + '&lower=' + $("#lower").val() + '&upper=' + $("#upper").val());
 
-        tableView1.fetchData(API_URL + '/getP?brand_name=' + $("#brands_name").val() + '&lower=' + $("#lower").val() + '&upper=' + $("#upper").val());
+        console.log(brand_name);
+        console.log(lower);
+        console.log(upper);
+
+
+        tableView1.fetchDataFromFilter(API_URL + '/getFilter?brand_name=' + brand_name + '&lower=' + lower + '&upper=' + upper);
     },
     viewCart: function () {
         console.log("im in view Cart");

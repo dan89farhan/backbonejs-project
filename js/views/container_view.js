@@ -42,11 +42,14 @@ var ContainerView = Backbone.View.extend({
         this.$el.append(typesView.render().$el);
         this.$el.append('<button class ="addProduct">Add</button>');
         this.$el.append('<button class ="fetchFromDB">fetch from database</button>')
+
         // this.$el.append(tableView.render().$el);
-        var addToCartItems = base.get('productDetails').where({
-            addToCart: 1
-        });
-        this.$el.append('<label> Count: ' + addToCartItems.length + '</label>');
+        //var addToCartItems = base.get('productDetails').where({ addToCart: 1 });
+        this.$el.append('<label> Count: </label>');
+        // this.$el.append('<div id="cartCountContainer" > </div>');
+        // this.$el.append(cartCountView.render().$el.html());
+        this.$el.append('<span id=count>0</span>')
+
         this.$el.append('<button class="viewCart" id="viewCart">View Cart</button>');
 
         return this;
@@ -132,6 +135,12 @@ var typesView = new TypesView({
 //     model: base
 // });
 
+var tableView = new TableView({
+    model: base
+});
+var cartCountView = new CartCountView({
+    model: base
+});
 // var tableView = new TableView({
 //     model: base
 // });
@@ -141,5 +150,18 @@ var typesView = new TypesView({
 // });
 
 
+console.log('In container view');
+
+var fv = new FilterByBrandView({
+    model: base
+});
+
+var countView = new CountView({
+    model: base
+});
+
 // product.get('types')
+var containerView = new ContainerView({
+    model: base
+});
 // var containerView = new ContainerView({ model: base });
