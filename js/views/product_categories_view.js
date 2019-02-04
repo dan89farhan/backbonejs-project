@@ -39,7 +39,7 @@ var CategoryView = Backbone.View.extend({
 
 var CategoriesView = Backbone.View.extend({
     tagName: 'div',
-    el: '#catogeries',
+    // el: '#catogeries',
 
     initialize: function () {
 
@@ -49,7 +49,9 @@ var CategoriesView = Backbone.View.extend({
         });
     },
     render: function () {
+        this.$el.html('<span>Select Category</span>');
         var self = this;
+
         this.model.get('product').get('catogories').each(function (category) {
             var categoryView = new CategoryView({
                 model: category

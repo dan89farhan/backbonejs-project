@@ -1,6 +1,6 @@
 var BrandsView = Backbone.View.extend({
-    tagName: 'div',
-    el: '#brand',
+    // tagName: 'div',
+    // el: '#brand',
     events: {
         'change select': 'change'
     },
@@ -12,7 +12,7 @@ var BrandsView = Backbone.View.extend({
         productDetail.set({
             'brand': brand
         });
-        console.log('im in brands view change event', productDetail);
+
 
         // console.log(this.model);
     },
@@ -28,6 +28,7 @@ var BrandsView = Backbone.View.extend({
         // });
     },
     render: function () {
+        this.$el.html();
         var Template = _.template($("#brands_temp").html());
 
         var tempHtml = Template({

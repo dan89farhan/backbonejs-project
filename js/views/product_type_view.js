@@ -25,7 +25,7 @@ var TypeView = Backbone.View.extend({
 
 var TypesView = Backbone.View.extend({
     tagName: 'div',
-    el: '#types',
+    // el: '#types',
     events: {
 
     },
@@ -33,7 +33,9 @@ var TypesView = Backbone.View.extend({
         // this.render();
     },
     render: function () {
+        this.$el.html('<span>Select Type</span>');
         var self = this;
+        // this.$el.append();
         this.model.get('product').get('types').each(function (type) {
             var typeView = new TypeView({
                 model: type

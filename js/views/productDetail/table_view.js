@@ -1,6 +1,6 @@
 var TableView = Backbone.View.extend({
 
-    el: '#table',
+    el: '#container',
     events: {
 
     },
@@ -10,7 +10,7 @@ var TableView = Backbone.View.extend({
         this.model.get('productDetails').on('remove', this.removeRow, this);
 
         this.model.get('productDetails').on('sync', this.syncTable, this);
-
+        this.render();
     },
 
 
@@ -33,4 +33,7 @@ var TableView = Backbone.View.extend({
         this.model.get('productDetails').fetch().done(function (response) {
         });
     },
+    render: function () {
+        this.$el.append('<tr>            <th>name</th>            <th>price</th>            <th>brand</th>            <th>categories</th>            <th>date</th>            <th>type</th>            <th>description</th>            <th>action</th>            <th>Add to Cart</th>        </tr>');
+    }
 });

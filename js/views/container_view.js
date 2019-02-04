@@ -33,6 +33,7 @@ var ContainerView = Backbone.View.extend({
     },
     render: function () {
 
+        this.$el.html('');
         this.$el.append(basicView.render().$el);
         this.$el.append(brandsView.render().$el);
         this.$el.append(categoriesView.render().$el);
@@ -95,9 +96,6 @@ var productDetails = new ProductDetails();
 
 var cartItemList = new CartItemList();
 
-
-
-
 var base = new Base();
 base.set({
     'product': product,
@@ -131,9 +129,9 @@ var typesView = new TypesView({
 //     model: base
 // });
 
-var tableView = new TableView({
-    model: base
-});
+// var tableView = new TableView({
+//     model: base
+// });
 
 // var cartItemListView = new CartItemListView({
 //     model: base
@@ -141,4 +139,4 @@ var tableView = new TableView({
 
 
 // product.get('types')
-var containerView = new ContainerView({ model: base });
+// var containerView = new ContainerView({ model: base });

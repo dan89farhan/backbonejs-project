@@ -1,5 +1,5 @@
 var LoginView = Backbone.View.extend({
-    el: '#login',
+    el: '#container',
     events: {
         'click #login_btn': 'loginClick'
     },
@@ -24,6 +24,7 @@ var LoginView = Backbone.View.extend({
 
                 if (data.error) {  // If there is an error, show the error messages
                     $('.alert-error').text(data.error.text).show();
+
                 }
                 else { // If not, send them back to the home page
                     window.location.replace('#');
@@ -47,28 +48,31 @@ var LoginView = Backbone.View.extend({
             url: url,
             type: 'POST',
             dataType: "json",
-            // data: formValues,
-            // headers: {
-            //     "Content-Type": "application/json",
 
-            // },
             data: formValues,
-            // contentType: 'application/json',
             success: function (data) {
-                console.log(["Login request details: ", data]);
+                // console.log("Login request details: ", data);
 
                 if (data.error) {  // If there is an error, show the error messages
-
+                    alert('Error occured' + data.response);
                     console.log(' Error occured ', data.error);
 
                 }
                 else { // If not, send them back to the home page
-                    console.log(' success ');
+                    console.log(' success ', data.value, typeof data.value);
+                    if (data.value == 'true') {
+                        router.navigate('formdata', true);
+                    }
+                    else {
+                        alert('You are unauthenticate!\n Please enter correct username and password');
+                    }
+
 
                     // window.location.replace('#');
                 }
             },
             error: function (data) {
+                alert('Error occured' + data.response);
                 console.log(data);
 
             }
@@ -79,6 +83,7 @@ var LoginView = Backbone.View.extend({
         this.render();
     },
     render: function () {
+        this.$el.html();
         var Template = _.template($("#login_temp").html());
 
         var tempHtml = Template();
