@@ -10,7 +10,7 @@ var AppRouter = Backbone.Router.extend({
         var loginView = new LoginView();
     },
     showTable: function () {
-
+        tableView.fetchData();
     },
     viewCart: function () {
         console.log("im in view Cart");
