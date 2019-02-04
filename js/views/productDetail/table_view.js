@@ -6,9 +6,6 @@ var TableView = Backbone.View.extend({
     },
     initialize: function () {
 
-        //this.model.render();
-
-        // this.model.get('productDetails').on('add', this.addRow, this);
         this.model.get('productDetails').on('remove', this.removeRow, this);
 
         this.model.get('productDetails').on('sync', this.syncTable, this);
@@ -17,6 +14,8 @@ var TableView = Backbone.View.extend({
 
 
     syncTable: function (data) {
+        this.$el.html('');
+        this.$el.append('<tr>            <th>name</th>            <th>price</th>            <th>brand</th>            <th>categories</th>            <th>date</th>            <th>type</th>            <th>description</th>            <th>action</th>            <th>Add to Cart</th>        </tr>');
         var self = this;
         for (let index = 0; index < data.length; index++) {
             var rowview = new RowView({ model: data.at(index) });
@@ -25,7 +24,7 @@ var TableView = Backbone.View.extend({
     },
 
     removeRow: function (row) {
-        console.log('i m here remove');
+        console.log('i m here in remove');
         this.$('tr#' + row.cid).remove();
     },
 
@@ -36,6 +35,7 @@ var TableView = Backbone.View.extend({
         });
     },
     render: function () {
+        this.$el.html('');
         this.$el.append('<tr>            <th>name</th>            <th>price</th>            <th>brand</th>            <th>categories</th>            <th>date</th>            <th>type</th>            <th>description</th>            <th>action</th>            <th>Add to Cart</th>        </tr>');
     }
 });
