@@ -6,7 +6,7 @@ var AppRouter = Backbone.Router.extend({
     },
 
     index: function () {
-        console.log('index');
+        var loginView = new LoginView();
     },
     showTable: function () {
 

@@ -43,11 +43,24 @@
             <!--  -->
         </table>
     </div>
+
+    <div id='login'></div>
+
+
+
     <script src="js/lib/jquery-min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
 
-    <!-- <center><button id="getData">Fetch From DB</button></center> -->
+
+
+    <!-- User Login Template -->
+
+    <script id='login_temp' type="text/html">
+        UserName: <input type="text" name="username" id="username">
+        Password: <input type="text" name="password" id="password">
+        <button id = 'login_btn'>Login</button>
+    </script>
 
     <!-- Basic template -->
     <script id="prod_name_price_data" type="text/html">
@@ -73,12 +86,15 @@
 
 
 
+
+
     <!-- Model called -->
     <script src="js/models/container_model.js"></script>
     <script src="js/models/product_basic_model.js"></script>
     <script src="js/models/brands_model.js"></script>
     <script src="js/models/categories_model.js"></script>
     <script src="js/models/types_model.js"></script>
+    <script src="js/models/users_model.js"></script>
 
 
 
@@ -87,6 +103,7 @@
     <script src="js/views/product_brands_view.js"></script>
     <script src="js/views/product_categories_view.js"></script>
     <script src="js/views/product_type_view.js"></script>
+    <script src="js/views/user/login_view.js"></script>
 
 
     <!-- Product Details view -->
