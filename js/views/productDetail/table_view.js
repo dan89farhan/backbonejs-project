@@ -39,6 +39,7 @@ var TableView = Backbone.View.extend({
             var rowview = new RowView({ model: data.at(index) });
             self.$el.append(rowview.render().$el);
         }
+        return this;
     },
 
     removeRow: function (row) {
@@ -47,7 +48,7 @@ var TableView = Backbone.View.extend({
     },
 
     fetchData: function () {
-        console.log('im in fetch data');
+        // console.log('im in fetch data');
 
         this.model.get('productDetails').fetch().done(function (response) {
         });

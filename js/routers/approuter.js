@@ -20,7 +20,7 @@ var AppRouter = Backbone.Router.extend({
         tableView.fetchData();
     },
     viewCart: function () {
-        console.log("im in view Cart");
+        // console.log("im in view Cart");
         //base.get()
         var cartItemListView = new CartItemListView({ model: base });
 
