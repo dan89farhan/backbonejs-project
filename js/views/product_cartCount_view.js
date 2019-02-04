@@ -1,14 +1,15 @@
 
 var CartCountView = Backbone.View.extend({
+    el: '#cartCountContainer',
+
+    initialize: function () {
+        this.model.get('cartItemList').on("add", this.render, this);
+        this.model.get('cartItemList').on("remove", this.render, this);
+    },
 
     render: function () {
-        var cartProduct = this.model.get('productDetails').filter(function (s) {
-            return s.get("quantity") > 0;
-        });
-        console.log(cartProduct);
-
-        var cartCount = cartProduct.length;
-        this.$el.append(cartCount);
+        this.$el.html(this.model.get('cartItemList').length);
         return this;
+
     }
 });
