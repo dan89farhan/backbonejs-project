@@ -39,8 +39,21 @@
                 <th>type</th>
                 <th>description</th>
                 <th>action</th>
+                <th>Add to Cart</th>
             </tr>
             <!--  -->
+        </table>
+    </div>
+
+    <div>
+        <table id="cartTable">
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Quantity</th>
+                <th>Increase Quantity</th>
+                <th>Decrease Quantity</th>
+            </tr>
         </table>
     </div>
     <script src="js/lib/jquery-min.js"></script>
@@ -79,7 +92,7 @@
     <script src="js/models/brands_model.js"></script>
     <script src="js/models/categories_model.js"></script>
     <script src="js/models/types_model.js"></script>
-
+    <script src="js/models/cart_model.js"></script>
 
 
     <!-- Views called -->
@@ -87,7 +100,8 @@
     <script src="js/views/product_brands_view.js"></script>
     <script src="js/views/product_categories_view.js"></script>
     <script src="js/views/product_type_view.js"></script>
-
+    <script src="js/views/Cart/CartItemList_view.js"></script>
+    <script src="js/views/Cart/cartItem_view.js"></script>
 
     <!-- Product Details view -->
     <script src="js/views/productDetail/row_view.js"></script>

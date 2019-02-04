@@ -3,7 +3,8 @@ var ContainerView = Backbone.View.extend({
     type: 'post',
     events: {
         'click .addProduct': 'onAdd',
-        'click .fetchFromDB': 'fetchFromDB'
+        'click .fetchFromDB': 'fetchFromDB',
+        'click .viewCart': 'viewCart'
     },
     onAdd: function () {
         console.log('on Add');
@@ -21,6 +22,12 @@ var ContainerView = Backbone.View.extend({
         router.navigate('showTable', true);
     },
 
+    viewCart: function () {
+        console.log("In view.");
+        router.navigate('viewCart', true);
+
+    },
+
     initialize: function () {
         this.render();
 
@@ -34,6 +41,10 @@ var ContainerView = Backbone.View.extend({
         this.$el.append('<button class ="addProduct">Add</button>');
         this.$el.append('<button class ="fetchFromDB">fetch from database</button>')
         // this.$el.append(tableView.render().$el);
+        var addToCartItems = base.get('productDetails').where({ addToCart: 1 });
+        this.$el.append('<label> Count: ' + addToCartItems.length + '</label>');
+        this.$el.append('<button class="viewCart" id="viewCart">View Cart</button>');
+
         return this;
     }
 });
@@ -70,7 +81,6 @@ var categoryRows = new Categories();
 
 
 product.set({
-
     'brands': brands,
     'catogories': categories,
     'types': types,
@@ -84,13 +94,16 @@ var productDetail = new ProductDetail();
 
 var productDetails = new ProductDetails();
 
+var cartItemList = new CartItemList();
+
 
 
 
 var base = new Base();
 base.set({
     'product': product,
-    'productDetails': productDetails
+    'productDetails': productDetails,
+    'cartItemList': cartItemList
 })
 
 
@@ -122,6 +135,10 @@ var typesView = new TypesView({
 var tableView = new TableView({
     model: base
 });
+
+// var cartItemListView = new CartItemListView({
+//     model: base
+// });
 
 
 // product.get('types')

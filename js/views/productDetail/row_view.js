@@ -6,7 +6,8 @@ var RowView = Backbone.View.extend({
 
     events: {
         'click .update': 'updateRow',
-        'click .delete': 'deleteRow'
+        'click .delete': 'deleteRow',
+        'click .addToCart': 'addToCartRow'
     },
     updateRow: function () {
         var chcekDisable = $('input#' + this.model.cid).prop('disabled');
@@ -16,6 +17,13 @@ var RowView = Backbone.View.extend({
     deleteRow: function () {
         base.get('productDetails').remove(this.model);
         this.model.destroy();
+    },
+    addToCartRow: function () {
+        // console.log(this.model.get('addToCart'));
+        var qty = this.model.get("quantity");
+        this.model.set({ quantity: qty + 1 });
+        console.log(base.get('cartItemList').add(this.model));
+
     },
 
 
@@ -33,6 +41,7 @@ var RowView = Backbone.View.extend({
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('type') + '" disabled/>' + '</td>');
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('desc') + '" disabled/>' + '</td>');
         this.$el.append('<td><button class = update>update</button><button class = delete>Delete</button></td>');
+        this.$el.append('<td><button class= addToCart>Add to Cart</button></td>')
         this.$el.attr('id', this.model.cid);
         if (this.model.get('type') == 'New') {
             this.$el.css('background-color', 'orange');
@@ -41,6 +50,7 @@ var RowView = Backbone.View.extend({
         } else {
             this.$el.css('background-color', 'green');
         }
+        console.log("im in row view render");
 
         return this;
     }

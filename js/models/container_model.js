@@ -18,6 +18,7 @@ var ProductDetail = Backbone.Model.extend({
         'brand': '',
         'categories': '',
         'type': '',
+        'quantity': 0
     },
     urlRoot: "http://localhost:8080/saveProduct",
 });
@@ -44,6 +45,7 @@ var ProductDetails = Backbone.Collection.extend({
 var Base = Backbone.Model.extend({
     relations: {
         'product': Backbone.Model,
-        'productDetails': Backbone.Collection
+        'productDetails': Backbone.Collection,
+        'cartItemList': Backbone.Collection
     }
 })
