@@ -43,7 +43,7 @@ var BasicView = Backbone.View.extend({
     },
     render: function () {
         // console.log(this.model);
-
+        this.$el.html();
         var Template = _.template($("#prod_name_price_data").html());
         var tempHtml = Template();
         this.$el.html(tempHtml);

@@ -32,7 +32,7 @@ var RowView = Backbone.View.extend({
         // this.model.save();
     },
     render: function () {
-
+        this.$el.html('');
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('name') + '" disabled/>' + '</td>');
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('price') + '" disabled/>' + '</td>');
         this.$el.append('<td><input type="text" id = "' + this.model.cid + '" value ="' + this.model.get('brand') + '" disabled/>' + '</td>');
@@ -50,7 +50,7 @@ var RowView = Backbone.View.extend({
         } else {
             this.$el.css('background-color', 'green');
         }
-        console.log("im in row view render");
+
 
         return this;
     }
